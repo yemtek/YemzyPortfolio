@@ -1,2 +1,220 @@
-main {
+:root {
+  --bg-dark: #0f172a;
+  /* Made glass slightly darker for better contrast with photos */
+  --glass-bg: rgba(15, 23, 42, 0.8); 
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* The glowing background blob */
+.background-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: var(--primary-gradient);
+  filter: blur(120px);
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: -1;
+  top: -100px;
+  right: -100px;
+}
+
+/* General Fade In Up Animation on load */
+.animate-up {
+  animation: fadeUp 1s ease-out forwards;
+  opacity: 0; /* Start invisible */
+  transform: translateY(30px); /* Start slightly down */
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add delays so items load one by one */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 0;
+  background: rgba(15, 23, 42, 0.6); /* More transparent */
+  backdrop-filter: blur(16px); /* Stronger blur */
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover { color: #fff; }
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section Layout */
+.hero {
+  padding-top: 160px;
+  padding-bottom: 100px;
+  display: flex; /* Turn on Flexbox layout */
+  align-items: center; /* Vertically center */
+  justify-content: space-between; /* Space text and image apart */
+  gap: 40px;
+}
+
+.hero-text { flex: 1; }
+
+/* Profile Image Styling & Floating Animation */
+.profile-img-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover; /* Ensures image doesn't stretch weirdly */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic blob shape */
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  /* The Floating Magic */
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); } /* Move up 20px */
+  100% { transform: translateY(0px); }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin: 10px 0;
+  line-height: 1.1;
+}
+
+.gradient-text {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 35px;
+  background: var(--primary-gradient);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.6);
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.8);
+}
+
+/* Projects Section */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden; /* Important so image stays inside rounded corners */
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px); /* Higher lift on hover */
+  border-color: #818cf8;
+}
+
+/* New Project Image Styling */
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.card-content { padding: 25px; }
+
+.tech-tag {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-right: 8px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 80px 0;
+  color: var(--text-muted);
+  margin-top: 80px;
+}
+
+/* Mobile Tweaks - Stack the hero section on phones */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse; /* Put image on top of text on mobile */
+    text-align: center;
+    padding-top: 120px;
+  }
+  .hero h1 { font-size: 2.5rem; }
+  .profile-img { width: 200px; height: 200px; margin-bottom: 30px;}
+  .nav-links { display: none; }
 }
