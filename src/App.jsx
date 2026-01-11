@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Video, Code, PenTool, Play, Database, Image, Mail, Phone, MessageCircle } from 'lucide-react';
+import { Video, Code, PenTool, Play, Database, Image, Mail, MessageCircle } from 'lucide-react';
 import './App.css';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('video'); // Options: 'video', 'dev', 'design'
+  // CHANGED: Default is now 'dev' instead of 'video'
+  const [activeTab, setActiveTab] = useState('dev'); 
 
   // --- 1. VIDEO EDITOR DATA ---
   const videoData = {
@@ -59,13 +60,13 @@ export default function App() {
       <nav className="navbar">
         <div className="brand">Yemzy<span style={{color: currentData.themeColor}}>Portfolio</span></div>
         
-        {/* 3-WAY TOGGLE SWITCH */}
+        {/* CHANGED: Reordered Buttons (Dev First) */}
         <div className="toggle-container">
-          <button className={`toggle-btn ${activeTab === 'video' ? 'active' : ''}`} onClick={() => setActiveTab('video')}>
-            <Video size={16} /> Creator
-          </button>
           <button className={`toggle-btn ${activeTab === 'dev' ? 'active' : ''}`} onClick={() => setActiveTab('dev')}>
             <Code size={16} /> Dev
+          </button>
+          <button className={`toggle-btn ${activeTab === 'video' ? 'active' : ''}`} onClick={() => setActiveTab('video')}>
+            <Video size={16} /> Creator
           </button>
           <button className={`toggle-btn ${activeTab === 'design' ? 'active' : ''}`} onClick={() => setActiveTab('design')}>
             <PenTool size={16} /> Design
@@ -137,7 +138,7 @@ export default function App() {
             <Mail size={18}/> Email Me
           </a>
 
-          {/* WHATSAPP BUTTON (Using your number) */}
+          {/* WHATSAPP BUTTON */}
           <a href="https://wa.me/2347053438904" target="_blank" style={{
             background: '#25D366', color: 'white', 
             padding:'12px 30px', borderRadius:'50px', textDecoration:'none', 
