@@ -127,7 +127,7 @@ export default function Hero({ onExploreProjects, onGetInTouch }) {
             </a>
 
             <a
-              href="https://linkedin.com/in/yemi-joseph-13886043a"
+              href="https://www.linkedin.com/in/yemi-joseph-13886043a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noreferrer"
               className="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/10 text-slate-300 hover:text-white transition-all"

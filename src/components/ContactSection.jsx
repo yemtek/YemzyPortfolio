@@ -143,13 +143,13 @@ export default function ContactSection() {
                 </a>
                 <span>&bull;</span>
                 <a
-                  href="https://linkedin.com/in/yemi-joseph-13886043a"
+                  href="https://www.linkedin.com/in/yemi-joseph-13886043a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-cyan-400 transition-colors inline-flex items-center gap-1"
                 >
                   <Linkedin size={14} />
-                  <span>LinkedIn</span>
+                  <span>LinkedIn Profile</span>
                 </a>
               </div>
             </div>
