@@ -1,0 +1,8 @@
+{
+  "name": "Yemzy Portfolio",
+  "description": "Portfolio of Joseph Yemi (Yemzy) - Senior Full-Stack & Infrastructure Engineer specializing in Scalable Web Apps, AI Workflows & Enterprise Infrastructure.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
